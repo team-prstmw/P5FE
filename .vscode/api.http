@@ -1,0 +1,6 @@
+@serverUrl = http://localhost:4000/api
+
+###
+
+# Get hello from server
+GET {{serverUrl}}/hello

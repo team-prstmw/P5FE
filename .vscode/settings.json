@@ -1,0 +1,32 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.rulers": [120],
+  "search.exclude": {
+    "**/dist": true,
+    "**/.yarn": true,
+    "yarn.lock": true
+  },
+  "rest-client.defaultHeaders": {
+    "Content-Type": "application/json",
+    "User-Agent": "vscode-restclient"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
+}

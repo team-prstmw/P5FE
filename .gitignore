@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Dependencies
+node_modules
+package-lock.json
+
+# Tests
+coverage
+
+# TypeScript
+*.tsbuildinfo
+
+# Production
+dist
+dist-ssr
+**/server/public
+
+# npm
+.npm
+
+# ESLint
+.eslintcache
+
+# Env files
+.env
+
+# OS
+.DS_Store
+*.pem
+*.local
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

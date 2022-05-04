@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": ".",
+    "esModuleInterop": false,
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "noEmit": true,
+    "paths": {
+      "@/api/*": ["src/api/*"],
+      "@/utils/*": ["src/utils/*"]
+    },
+    "target": "ESNext"
+  },
+  "include": ["src"]
+}
