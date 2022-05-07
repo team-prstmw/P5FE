@@ -43,6 +43,17 @@ module.exports = {
     'no-unused-vars': [2, { argsIgnorePattern: '^_' }],
     'no-underscore-dangle': [2, { allow: ['_id'] }],
     '@typescript-eslint/explicit-module-boundary-types': 0,
+    'import/prefer-default-export': 0,
+    'import/no-absolute-path': 0,
+    'no-nested-ternary': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/no-children-prop': 0,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
   overrides: [
     {

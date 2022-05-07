@@ -10,9 +10,11 @@
     "noEmit": true,
     "paths": {
       "@/api/*": ["src/api/*"],
-      "@/utils/*": ["src/utils/*"]
+      "@/utils/*": ["src/utils/*"],
+      "src/*":["src/*"]
     },
     "target": "ESNext"
   },
+  "outDir": "./dist/",
   "include": ["src"]
 }
