@@ -2,6 +2,7 @@ import './App.css';
 
 import { ReactElement, useState } from 'react';
 import { useQuery } from 'react-query';
+import AddMealForm from 'src/components/UI/organisms/AddMealForm/AddMealForm';
 import MenuItem from 'src/components/UI/organisms/MenuItem/MenuItem';
 
 import helloRequest from './api/hello';
@@ -23,9 +24,8 @@ function ServerMessage() {
 function App(): ReactElement {
   return (
     <div className="App">
-      <MenuItem />
-      <MenuItem />
-      <MenuItem />
+      <AddMealForm />
+      {/* <MenuItem /> */}
     </div>
   );
 }
