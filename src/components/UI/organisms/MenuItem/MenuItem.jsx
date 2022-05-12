@@ -1,4 +1,4 @@
-import { Box, Button, Modal, TextareaAutosize, Typography } from '@mui/material';
+import { Box, Button, Modal, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import './MenuItem.css';
 
@@ -33,21 +33,12 @@ function MenuItem() {
       <Button onClick={handleOpen} className="menuItem__order-button" variant="contained">
         ADD INFO
       </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box>
-          <TextareaAutosize
-            aria-label="minimum height"
-            minRows={3}
-            placeholder="Minimum 3 rows"
-            style={{ width: 200 }}
-          />
-          <Button onClick={handleClose} className="menuItem__additional-i-button" variant="contained">
-            SAVE
+      <Modal open={open} onClose={handleClose}>
+        <Box className="menuItem__modal">
+          <Typography className="menuItem__modal--additional">Additional Information</Typography>
+          <TextField multiline fullWidth minRows={5} placeholder="Additional Information" />
+          <Button fullWidth onClick={handleClose} className="menuItem__additional-i-button" variant="contained">
+            SAVE AND CLOSE
           </Button>
         </Box>
       </Modal>
