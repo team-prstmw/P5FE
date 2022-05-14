@@ -2,8 +2,12 @@ import './App.css';
 
 import { ReactElement, useState } from 'react';
 import { useQuery } from 'react-query';
+import { useSelector } from 'react-redux';
 
+import { selectUser } from '../src/features/userSlice';
 import helloRequest from './api/hello';
+import Dashboard from './pages/Dashboard/Dashboard';
+import HomePage from './pages/HomePage/HomePage';
 
 function ServerMessage() {
   const { data, isLoading, error } = useQuery('hello', helloRequest);
@@ -21,39 +25,9 @@ function ServerMessage() {
 
 function App(): ReactElement {
   const [count, setCount] = useState(0);
+  const user = useSelector(selectUser);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="/logo.svg" className="App-logo" alt="logo" />
-        <p>
-          Server says: <ServerMessage />
-        </p>
-        <p>
-          <button type="button" onClick={() => setCount((prev) => prev + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  );
+  return <>{user ? <Dashboard /> : <HomePage />}</>;
 }
 
 export default App;
