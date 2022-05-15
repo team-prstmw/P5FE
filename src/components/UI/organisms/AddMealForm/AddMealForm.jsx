@@ -3,12 +3,11 @@ import { addMealSchema } from '../../../../schemas/addMealSchema';
 import { useForm } from 'react-hook-form';
 import './AddMealForm.css';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+
 function AddMealForm() {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
@@ -32,7 +31,7 @@ function AddMealForm() {
           />
           {errors?.title ? <FormHelperText error>{errors?.title && errors?.title.message}</FormHelperText> : null}
           <TextField
-            //   error={!!errors?.email}
+            error={!!errors?.description}
             label="Meal description"
             placeholder="Meal description"
             required
@@ -41,24 +40,31 @@ function AddMealForm() {
             autoComplete="Meal-description"
             {...register('description')}
           />
+          {errors?.description ? (
+            <FormHelperText error>{errors?.description && errors?.description.message}</FormHelperText>
+          ) : null}
           <TextField
-            //   error={!!errors?.email}
-            label="Weight(grams)"
-            placeholder="Weight(grams)"
+            error={!!errors?.weight}
+            label="Weight(grams/ml)"
+            placeholder="Weight(grams/ml)"
             required
+            InputProps={{ inputProps: { min: 0 } }}
             type="number"
             autoComplete="Meal-weight"
             {...register('weight')}
           />
+          {errors?.weight ? <FormHelperText error>{errors?.weight && errors?.weight.message}</FormHelperText> : null}
           <TextField
-            //   error={!!errors?.email}
+            error={!!errors?.price}
             label="Price"
             placeholder="Price"
             required
+            InputProps={{ inputProps: { min: 0 } }}
             type="number"
             autoComplete="Meal-price"
             {...register('price')}
           />
+          {errors?.price ? <FormHelperText error>{errors?.price && errors?.price.message}</FormHelperText> : null}
           <Button color="primary" type="submit" variant="contained">
             ADD MEAL
           </Button>
