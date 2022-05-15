@@ -1,10 +1,11 @@
-import { Box, Button, Modal, TextareaAutosize, TextField, Typography } from '@mui/material';
-import { useState } from 'react';
 import './MenuItem.css';
+
+import { Box, Button, Modal, TextField, Typography } from '@mui/material';
+import { useState } from 'react';
 
 function MenuItem() {
   const [amount, setAmount] = useState(0);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -15,7 +16,6 @@ function MenuItem() {
     if (amount > 0) {
       setAmount((prevState) => prevState - 1);
     }
-    return;
   };
   return (
     <Box className="MenuItem">
@@ -30,7 +30,7 @@ function MenuItem() {
       <Button className="menuItem__increase-button" onClick={inc} variant="contained">
         +
       </Button>
-      <Button onClick={handleOpen} className="menuItem__order-button" variant="contained">
+      <Button onClick={handleOpen} className="menuItem__more-info-button" variant="contained">
         ADD INFO
       </Button>
       <Modal open={open} onClose={handleClose}>
