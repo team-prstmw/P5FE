@@ -18,7 +18,6 @@ function RegisterForm() {
   });
   const [currentStep, setCurrentStep] = useState(0);
 
-  // Fake Request
   const makeRequest = (formData) => {
     console.log('Form Submitted', formData);
   };

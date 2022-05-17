@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "allowJs": false,
+    "allowJs": true,
     "baseUrl": ".",
     "esModuleInterop": false,
     "jsx": "react-jsx",
@@ -11,7 +11,7 @@
     "paths": {
       "@/api/*": ["src/api/*"],
       "@/utils/*": ["src/utils/*"],
-      "src/*":["src/*"]
+      "src/*": ["src/*"]
     },
     "target": "ESNext"
   },

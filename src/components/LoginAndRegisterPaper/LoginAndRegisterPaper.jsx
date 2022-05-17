@@ -23,11 +23,7 @@ function TabPanel(props) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 }
@@ -59,15 +55,8 @@ function LoginAndRegisterPaper() {
 
   return (
     <Grid>
-      <Paper elevation={10} className={styles.paperStyle}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
+      <Paper elevation={10} className={styles.paper}>
+        <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="inherit" variant="fullWidth">
           <Tab label="Sign In" {...a11yProps(0)} />
           <Tab label="Register" {...a11yProps(1)} />
         </Tabs>

@@ -1,5 +1,5 @@
-.paperStyle {
-  padding: 20px;
-  min-height: 45vh;
+.paper {
   width: 380px;
+  min-height: 45vh;
+  padding: 20px;
 }
