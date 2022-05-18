@@ -1,28 +1,24 @@
-import React from 'react';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { Box, Button, Container } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { Logout } from '../../features/userSlice';
+
+import { logout } from '../../features/userSlice';
 
 function Dashboard() {
   const dispatch = useDispatch();
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-
-    dispatch(Logout());
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
-    <React.Fragment>
+    <>
       <Container fixed>
         <Box sx={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Button
             variant="contained"
             color="error"
             sx={{ height: '86px', width: '106px', margin: '4px' }}
-            onClick={(e) => handleLogout(e)}
+            onClick={() => handleLogout()}
           >
             LOGOUT
           </Button>
@@ -31,7 +27,7 @@ function Dashboard() {
           </Button>
         </Box>
       </Container>
-    </React.Fragment>
+    </>
   );
 }
 

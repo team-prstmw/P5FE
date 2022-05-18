@@ -1,24 +1,26 @@
+/* eslint-disable */
 import Button from '@mui/material/Button';
 import { Field, Form, Formik } from 'formik';
 import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
 
-function StepTwo(props) {
-  const handleSubmit = (values) => {
+function StepTwo(props: any) {
+  const handleSubmit = (values: any) => {
     props.next(values, true);
   };
+
   const validate = Yup.object({
     email: Yup.string().email('Email is invalid').required('Required'),
     login: Yup.string().min(5, 'Must be at least 5 characters').required('Required'),
     password: Yup.string().min(7, 'Must be at least 7 characters').required('Required'),
     password2: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'Password must match')
+      .oneOf([Yup.ref('password'), null], 'Password mustclear match')
       .required('Required'),
   });
 
   return (
     <Formik initialValues={props.data} onSubmit={handleSubmit} validationSchema={validate}>
-      {({ values }) => (
+      {({ values }: any) => (
         <Form>
           <Field
             fullWidth

@@ -2,13 +2,10 @@ import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { Provider } from 'react-redux';
 
 import App from './App';
-import { Provider } from 'react-redux';
-import store from '../src/app/store';
-
-const client = new QueryClient();
+import { store } from './app/store';
 
 ReactDOM.render(
   <React.StrictMode>

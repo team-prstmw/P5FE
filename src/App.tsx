@@ -1,31 +1,19 @@
 import './App.css';
 
-import { ReactElement, useState } from 'react';
-import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 
-import { selectUser } from '../src/features/userSlice';
-import helloRequest from './api/hello';
+import { selectUser } from './features/userSlice';
 import Dashboard from './pages/Dashboard/Dashboard';
-import HomePage from './pages/HomePage/HomePage';
+import { HomePage } from './pages/HomePage/HomePage';
 
-function ServerMessage() {
-  const { data, isLoading, error } = useQuery('hello', helloRequest);
-
-  if (isLoading) {
-    return <span>Loading...</span>;
-  }
-
-  if (error) {
-    return <span>Some error ocurred</span>;
-  }
-
-  return <span>{data?.message}</span>;
-}
-
-function App(): ReactElement {
-  const [count, setCount] = useState(0);
+const useApp = () => {
   const user = useSelector(selectUser);
+
+  return { user } as const;
+};
+
+function App() {
+  const { user } = useApp();
 
   return <>{user ? <Dashboard /> : <HomePage />}</>;
 }

@@ -1,34 +1,33 @@
-import Grid from '@mui/material/Grid';
-import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Button, Checkbox, FormControlLabel, Grid } from '@mui/material';
+import { Field, Form, Formik } from 'formik';
+import { TextField } from 'formik-material-ui';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Login } from '../../../src/features/userSlice';
-import { Formik, Form, Field } from 'formik';
-import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
 
+import { login } from '../../features/userSlice';
+
+type LoginFormData = {
+  login: string;
+  password: string;
+};
+
 function LoginForm() {
-  const [data, setData] = useState({
+  const [data, setData] = useState<LoginFormData>({
     login: '',
     password: '',
   });
 
   const dispatch = useDispatch();
 
-  const initialValues = {
-    login: '',
-    password: '',
-    remember: false,
-  };
-
-  const handleSubmit = (newData) => {
-    setData(newData);
+  const handleSubmit = (newData: LoginFormData) => {
+    setData(data);
 
     dispatch(
-      Login({
-        login: data.login,
-        password: data.password,
+      login({
+        login: newData.login,
+        password: newData.password,
         loggedIn: true,
       })
     );
@@ -41,7 +40,12 @@ function LoginForm() {
 
   return (
     <>
-      <Grid align="center" item>
+      <Grid
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <AccountCircleIcon sx={{ fontSize: 50, margin: 3 }} color="primary" />
       </Grid>
       <Formik initialValues={data} onSubmit={handleSubmit} validationSchema={validate}>

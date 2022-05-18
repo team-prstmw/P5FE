@@ -54,6 +54,10 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'no-param-reassign': ['error', { props: false }],
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
   },
   overrides: [
     {

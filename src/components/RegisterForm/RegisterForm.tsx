@@ -1,9 +1,11 @@
-import Stepper from '@mui/material/Stepper';
+/* eslint-disable */
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
 import { useState } from 'react';
-import StepOne from '../../../src/components/RegisterForm/StepOne';
-import StepTwo from '../../../src/components/RegisterForm/StepTwo';
+
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
 
 function RegisterForm() {
   const [data, setData] = useState({
@@ -19,11 +21,11 @@ function RegisterForm() {
   const [currentStep, setCurrentStep] = useState(0);
 
   // Fake Request
-  const makeRequest = (formData) => {
+  const makeRequest = (formData: any) => {
     console.log('Form Submitted', formData);
   };
 
-  const handleNextStep = (newData, final = false) => {
+  const handleNextStep = (newData: any, final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
 
     if (final) {
@@ -34,7 +36,7 @@ function RegisterForm() {
     setCurrentStep((prev) => prev + 1);
   };
 
-  const handlePrevStep = (newData) => {
+  const handlePrevStep = (newData: any) => {
     setData((prev) => ({ ...prev, ...newData }));
     setCurrentStep((prev) => prev - 1);
   };

@@ -1,12 +1,14 @@
+/* eslint-disable */
 import Button from '@mui/material/Button';
 import { Field, Form, Formik } from 'formik';
 import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
 
-function StepOne(props) {
-  const handleSubmit = (values) => {
+function StepOne(props: any) {
+  const handleSubmit = (values: any) => {
     props.next(values);
   };
+  
   const validate = Yup.object({
     companyName: Yup.string().required('Required'),
     companyLogin: Yup.string().min(5, 'Must be at least 5 characters').required('Required'),
