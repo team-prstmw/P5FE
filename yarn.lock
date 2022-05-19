@@ -3875,6 +3875,7 @@ fsevents@~2.3.2:
     vite-react-jsx: 1.1.2
     vite-tsconfig-paths: 3.3.14
     yup: 0.32.11
+    zod: 3.16.0
   languageName: unknown
   linkType: soft
 
@@ -4866,5 +4867,12 @@ typescript@4.4.3:
     property-expr: ^2.0.4
     toposort: ^2.0.2
   checksum: 43a16786b47cc910fed4891cebdd89df6d6e31702e9462e8f969c73eac88551ce750732608012201ea6b93802c8847cb0aa27b5d57370640f4ecf30f9f97d4b0
+  languageName: node
+  linkType: hard
+
+"zod@npm:3.16.0":
+  version: 3.16.0
+  resolution: "zod@npm:3.16.0"
+  checksum: 2879a18e090ee67206375408eb0e506d32f3d6658634aa7f253250c4c223ebaef64dd0d76634a0b0bbd0ea64d26d512d8817a584a0490030b3b308fc62f83d1c
   languageName: node
   linkType: hard
