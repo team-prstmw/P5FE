@@ -48,6 +48,10 @@ module.exports = {
     'no-nested-ternary': 0,
     'react/jsx-props-no-spreading': 0,
     'react/no-children-prop': 0,
+    'no-param-reassign': ['error', { props: false }],
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
     'prettier/prettier': [
       'error',
       {

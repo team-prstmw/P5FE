@@ -1,6 +1,6 @@
 import './App.css';
 
-import { AddMealForm } from 'src/components/AddMealForm/AddMealForm';
+import { AddMealForm } from 'src/manager/components/AddMealForm/AddMealForm';
 
 function App() {
   return (

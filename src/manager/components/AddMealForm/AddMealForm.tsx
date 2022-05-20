@@ -3,16 +3,7 @@ import { Box, Button, FormHelperText, Stack, TextField, Typography } from '@mui/
 import { useForm } from 'react-hook-form';
 import { AddMealSchema, addMealSchema } from 'src/schemas/addMealSchema';
 
-import styles from './AddMealForm.module.css';
-
-// export type AddMealSchema = {
-//   title: string;
-//   description: string;
-//   weight: string;
-//   price: string;
-// };
-
-export function AddMealForm() {
+const useAddMealForm = () => {
   const {
     register,
     handleSubmit,
@@ -23,13 +14,23 @@ export function AddMealForm() {
   });
 
   const onSubmit = () => {};
+  return { register, handleSubmit, onSubmit, errors } as const;
+};
+
+export function AddMealForm() {
+  const { register, handleSubmit, onSubmit, errors } = useAddMealForm();
   return (
     <>
-      <Typography className={styles.AddMealForm__header}>Add Meal Form</Typography>
-      <Box noValidate className={styles.AddMealForm} component="form" onSubmit={handleSubmit(onSubmit)}>
+      <Typography sx={{ fontSize: '2rem', fontWeight: 700 }}>Add Meal Form</Typography>
+      <Box
+        sx={{ margin: '1rem auto', maxWidth: '60rem' }}
+        noValidate
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Stack spacing={2}>
           <TextField
-            error={!!errors?.title}
+            error={Boolean(errors?.title)}
             label="Meal Title"
             placeholder="Meal title"
             required
@@ -37,9 +38,9 @@ export function AddMealForm() {
             autoComplete="Meal-title"
             {...register('title')}
           />
-          {errors?.title ? <FormHelperText error>{errors?.title && errors?.title?.message}</FormHelperText> : null}
+          {errors?.title ? <FormHelperText error>{errors?.title?.message}</FormHelperText> : null}
           <TextField
-            error={!!errors?.description}
+            error={Boolean(errors?.description)}
             label="Meal description"
             placeholder="Meal description"
             required
@@ -48,11 +49,9 @@ export function AddMealForm() {
             autoComplete="Meal-description"
             {...register('description')}
           />
-          {errors?.description ? (
-            <FormHelperText error>{errors?.description && errors?.description.message}</FormHelperText>
-          ) : null}
+          {errors?.description ? <FormHelperText error>{errors?.description?.message}</FormHelperText> : null}
           <TextField
-            error={!!errors?.weight}
+            error={Boolean(errors?.weight)}
             label="Weight(grams/ml)"
             placeholder="Weight(grams/ml)"
             required
@@ -61,9 +60,9 @@ export function AddMealForm() {
             autoComplete="Meal-weight"
             {...register('weight')}
           />
-          {errors?.weight ? <FormHelperText error>{errors?.weight && errors?.weight.message}</FormHelperText> : null}
+          {errors?.weight ? <FormHelperText error>{errors?.weight?.message}</FormHelperText> : null}
           <TextField
-            error={!!errors?.price}
+            error={Boolean(errors?.price)}
             label="Price"
             placeholder="Price"
             required
@@ -72,8 +71,8 @@ export function AddMealForm() {
             autoComplete="Meal-price"
             {...register('price')}
           />
-          {errors?.price ? <FormHelperText error>{errors?.price && errors?.price.message}</FormHelperText> : null}
-          <Button className={styles.AddMealForm__submitButton} color="primary" type="submit" variant="contained">
+          {errors?.price ? <FormHelperText error>{errors?.price?.message}</FormHelperText> : null}
+          <Button sx={{ textTransform: 'uppercase' }} color="primary" type="submit" variant="contained">
             Add Meal
           </Button>
         </Stack>
