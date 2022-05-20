@@ -14,11 +14,13 @@ const useAddMealForm = () => {
   });
 
   const onSubmit = () => {};
+
   return { register, handleSubmit, onSubmit, errors } as const;
 };
 
 export function AddMealForm() {
   const { register, handleSubmit, onSubmit, errors } = useAddMealForm();
+
   return (
     <>
       <Typography sx={{ fontSize: '2rem', fontWeight: 700 }}>Add Meal Form</Typography>
