@@ -14,8 +14,8 @@ type RegisterData = {
 
 interface RegisterAdminDataStepProps {
   label: string;
-  next: (values: RegisterData, isItNext: boolean) => void;
-  prev: (values: RegisterData) => void;
+  nextStep: (values: RegisterData, isNext: boolean) => void;
+  prevStep: (values: RegisterData) => void;
   data: RegisterData;
 }
 
@@ -28,9 +28,9 @@ const schema = Yup.object().shape({
     .required('Required'),
 });
 
-function RegisterAdminDataStep({ next, prev, data }: RegisterAdminDataStepProps) {
+export function RegisterAdminDataStep({ nextStep, prevStep, data }: RegisterAdminDataStepProps) {
   const formSubmitHandler: SubmitHandler<RegisterData> = (values: RegisterData) => {
-    next(values, true);
+    nextStep(values, true);
   };
 
   const {
@@ -53,8 +53,8 @@ function RegisterAdminDataStep({ next, prev, data }: RegisterAdminDataStepProps)
             sx={{ margin: '12px 0px' }}
             label="Email"
             variant="outlined"
-            error={!!errors.email}
-            helperText={errors.email ? errors.email?.message : ''}
+            error={Boolean(errors?.email)}
+            helperText={errors.email && errors.email?.message}
             fullWidth
           />
         )}
@@ -69,8 +69,8 @@ function RegisterAdminDataStep({ next, prev, data }: RegisterAdminDataStepProps)
             sx={{ marginBottom: '12px' }}
             label="Login"
             variant="outlined"
-            error={!!errors.login}
-            helperText={errors.login ? errors.login?.message : ''}
+            error={Boolean(errors?.login)}
+            helperText={errors.login && errors.login?.message}
             fullWidth
           />
         )}
@@ -86,8 +86,8 @@ function RegisterAdminDataStep({ next, prev, data }: RegisterAdminDataStepProps)
             sx={{ marginBottom: '12px' }}
             label="Password"
             variant="outlined"
-            error={!!errors.password}
-            helperText={errors.password ? errors.password?.message : ''}
+            error={Boolean(errors?.password)}
+            helperText={errors.password && errors.password?.message}
             fullWidth
           />
         )}
@@ -103,8 +103,8 @@ function RegisterAdminDataStep({ next, prev, data }: RegisterAdminDataStepProps)
             sx={{ marginBottom: '12px' }}
             label="Confirm Password"
             variant="outlined"
-            error={!!errors.repeatPassword}
-            helperText={errors.repeatPassword ? errors.repeatPassword?.message : ''}
+            error={Boolean(errors?.repeatPassword)}
+            helperText={errors.repeatPassword && errors.repeatPassword?.message}
             fullWidth
           />
         )}
@@ -112,11 +112,11 @@ function RegisterAdminDataStep({ next, prev, data }: RegisterAdminDataStepProps)
       <div style={{ display: 'flex' }}>
         <Button
           fullWidth
-          sx={{ marginRight: '7px' }}
+          sx={{ mr: 7 }}
           variant="contained"
-          color="error"
+          color="warning"
           type="button"
-          onClick={() => prev(data)}
+          onClick={() => prevStep(data)}
         >
           Back
         </Button>
@@ -127,5 +127,3 @@ function RegisterAdminDataStep({ next, prev, data }: RegisterAdminDataStepProps)
     </form>
   );
 }
-
-export default RegisterAdminDataStep;

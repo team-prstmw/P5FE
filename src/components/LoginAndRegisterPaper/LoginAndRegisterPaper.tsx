@@ -1,22 +1,11 @@
 import { Paper } from '@mui/material';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { Direction, useTheme } from '@mui/material/styles';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
+import { Box, Grid, Tabs, Tab, Direction, useTheme } from "@mui/material"
 import { ReactNode, useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 
-import LoginForm from '../LoginForm/LoginForm';
-import RegisterForm from '../RegisterForm/RegisterForm';
+import { LoginForm } from '../LoginForm/LoginForm';
+import { RegisterForm } from '../RegisterForm/RegisterForm';
 import styles from './LoginAndRegisterPaper.module.css';
-
-function a11yProps(index: number) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
 
 type TabPanelProps = {
   children: ReactNode;
@@ -58,10 +47,10 @@ export const LoginAndRegisterPaper = () => {
           indicatorColor="primary"
           textColor="inherit"
           variant="fullWidth"
-          aria-label="full width tabs example"
+          aria-label="full width"
         >
-          <Tab label="Sign In" {...a11yProps(0)} />
-          <Tab label="Register" {...a11yProps(1)} />
+          <Tab label="Sign In" />
+          <Tab label="Register" />
         </Tabs>
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}

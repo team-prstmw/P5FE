@@ -1808,13 +1808,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge@npm:^2.1.1":
-  version: 2.2.1
-  resolution: "deepmerge@npm:2.2.1"
-  checksum: 284b71065079e66096229f735a9a0222463c9ca9ee9dda7d5e9a0545bf254906dbc7377e3499ca3b2212073672b1a430d80587993b43b87d8de17edc6af649a8
-  languageName: node
-  linkType: hard
-
 "define-properties@npm:^1.1.3, define-properties@npm:^1.1.4":
   version: 1.1.4
   resolution: "define-properties@npm:1.1.4"
@@ -2544,23 +2537,6 @@ __metadata:
     react: ">=17.0.2"
     tiny-warning: ">=1.0.3"
   checksum: f8935b89b86b077b5a0bec4b96f10b2bdb836562dbbd425b44a661462ffcb925eb2a627ff325a56e1f8ea1774824e25285ba8344d4267dee8c6d83db29acbca5
-  languageName: node
-  linkType: hard
-
-"formik@npm:2.2.9":
-  version: 2.2.9
-  resolution: "formik@npm:2.2.9"
-  dependencies:
-    deepmerge: ^2.1.1
-    hoist-non-react-statics: ^3.3.0
-    lodash: ^4.17.21
-    lodash-es: ^4.17.21
-    react-fast-compare: ^2.0.1
-    tiny-warning: ^1.0.2
-    tslib: ^1.10.0
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: f07f80eee8423b4c5560546c48c4093c47530dae7d931a4e0d947d68ae1aab94291b1bf2e99ecaa5854ee50593b415fb5724c624c787338f0577f066009e8812
   languageName: node
   linkType: hard
 
@@ -3993,7 +3969,6 @@ fsevents@~2.3.2:
     eslint-plugin-react-hooks: 4.2.0
     eslint-plugin-simple-import-sort: 7.0.0
     eslint-plugin-testing-library: 4.12.3
-    formik: 2.2.9
     formik-material-ui: 4.0.0-alpha.2
     prettier: 2.4.1
     prop-types: 15.8.1
@@ -4086,13 +4061,6 @@ fsevents@~2.3.2:
   peerDependencies:
     react: ^16.3.0
   checksum: 0287e0ae8cbf0a4c03889ffc2b745f5494b3edea0f4667357d709f5646dd78c7289ce305b6f473ec6ac5789f8a937c86b7e543d0249f0bf787bccdb1eab7ecd0
-  languageName: node
-  linkType: hard
-
-"react-fast-compare@npm:^2.0.1":
-  version: 2.0.4
-  resolution: "react-fast-compare@npm:2.0.4"
-  checksum: 06046595f90a4e3e3a56f40a8078c00aa71bdb064ddb98343f577f546aa22e888831fd45f009c93b34707cc842b4c637737e956fd13d6f80607ee92fb9cf9a1c
   languageName: node
   linkType: hard
 
@@ -4881,13 +4849,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tiny-warning@npm:^1.0.2":
-  version: 1.0.3
-  resolution: "tiny-warning@npm:1.0.3"
-  checksum: da62c4acac565902f0624b123eed6dd3509bc9a8d30c06e017104bedcf5d35810da8ff72864400ad19c5c7806fc0a8323c68baf3e326af7cb7d969f846100d71
-  languageName: node
-  linkType: hard
-
 "to-fast-properties@npm:^2.0.0":
   version: 2.0.0
   resolution: "to-fast-properties@npm:2.0.0"
@@ -4923,7 +4884,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.3":
+"tslib@npm:^1.8.1, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd

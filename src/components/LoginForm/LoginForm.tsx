@@ -2,39 +2,46 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 
-import { Login } from '../../features/userSlice.jsx';
+import { login } from '../../features/userSlice';
 
-interface IFormInputs {
+type LoginFormData = {
   login: string;
   password: string;
-  remember: boolean;
-}
+};
 
 const schema = Yup.object().shape({
   login: Yup.string().required('Required'),
   password: Yup.string().required('Required'),
 });
 
-function LoginForm() {
+export function LoginForm() {
+  const [data, setData] = useState<LoginFormData>({
+    login: '',
+    password: '',
+  });
+
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<LoginFormData>({
     resolver: yupResolver(schema),
   });
 
   const dispatch = useDispatch();
 
-  const formSubmitHandler: SubmitHandler<IFormInputs> = ({ login, password }: IFormInputs) => {
+  const formSubmitHandler: SubmitHandler<LoginFormData> = (newData: LoginFormData) => {
+    setData(data);
+
     dispatch(
-      Login({
-        login,
-        password,
+      login({
+        login: newData.login,
+        password: newData.password,
         loggedIn: true,
       })
     );
@@ -93,5 +100,3 @@ function LoginForm() {
     </>
   );
 }
-
-export default LoginForm;

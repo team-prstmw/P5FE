@@ -14,7 +14,7 @@ type RegisterData = {
 
 interface RegisterCompanyDataStepProps {
   label: string;
-  next: (values: RegisterData, isItNext: boolean) => void;
+  nextStep: (values: RegisterData, isNext: boolean) => void;
   data: RegisterData;
 }
 
@@ -23,9 +23,9 @@ const schema = Yup.object().shape({
   city: Yup.string().required('Required'),
 });
 
-function RegisterCompanyDataStep({ next, data }: RegisterCompanyDataStepProps) {
+export function RegisterCompanyDataStep({ nextStep, data }: RegisterCompanyDataStepProps) {
   const formSubmitHandler: SubmitHandler<RegisterData> = (values: RegisterData) => {
-    next(values, false);
+    nextStep(values, false);
   };
 
   const {
@@ -48,8 +48,8 @@ function RegisterCompanyDataStep({ next, data }: RegisterCompanyDataStepProps) {
             sx={{ margin: '12px 0px' }}
             label="Company Name"
             variant="outlined"
-            error={!!errors.companyName}
-            helperText={errors.companyName ? errors.companyName?.message : ''}
+            error={Boolean(errors?.companyName)}
+            helperText={errors.companyName && errors.companyName?.message}
             fullWidth
           />
         )}
@@ -64,8 +64,8 @@ function RegisterCompanyDataStep({ next, data }: RegisterCompanyDataStepProps) {
             sx={{ marginBottom: '12px' }}
             label="City"
             variant="outlined"
-            error={!!errors.city}
-            helperText={errors.city ? errors.city?.message : ''}
+            error={Boolean(errors?.city)}
+            helperText={errors.city && errors.city?.message}
             fullWidth
           />
         )}
@@ -76,5 +76,3 @@ function RegisterCompanyDataStep({ next, data }: RegisterCompanyDataStepProps) {
     </form>
   );
 }
-
-export default RegisterCompanyDataStep;

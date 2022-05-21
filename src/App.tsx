@@ -1,16 +1,19 @@
 import './App.css';
 
-import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
-import { selectUser } from '../src/features/userSlice';
-import Dashboard from './pages/Dashboard/Dashboard';
-import HomePage from './pages/HomePage/HomePage';
+import { selectUser } from './features/userSlice';
+import { Dashboard } from './pages/Dashboard/Dashboard';
+import { HomePage } from './pages/HomePage/HomePage';
 
-
-
-function App(): ReactElement {
+const useApp = () => {
   const user = useSelector(selectUser);
+
+  return { user } as const;
+};
+
+function App() {
+  const { user } = useApp();
 
   return <>{user ? <Dashboard /> : <HomePage />}</>;
 }
