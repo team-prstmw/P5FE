@@ -1,52 +1,69 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 import { MouseEvent, useState } from 'react';
 
 const pages = ['Orders', 'Menu', 'Tables', 'Reports'];
 const settings = ['Add new meal', 'Add new employee', 'Logout'];
 
 const useManagerPanelPage = () => {
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [anchorNavigationMenuEl, setAnchorNavigationMenuEl] = useState<null | HTMLElement>(null);
+  const [anchorUserMenuEl, setAnchorUserMenuEl] = useState<null | HTMLElement>(null);
+
+  const isUserMenuOpen = Boolean(anchorUserMenuEl);
+
+  const isNavigationMenuOpen = Boolean(anchorNavigationMenuEl);
 
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+    setAnchorNavigationMenuEl(event.currentTarget);
   };
   const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+    setAnchorUserMenuEl(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setAnchorNavigationMenuEl(null);
   };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+    setAnchorUserMenuEl(null);
   };
 
   return {
-    anchorElNav,
-    anchorElUser,
+    anchorNavigationMenuEl,
+    anchorUserMenuEl,
     handleOpenNavMenu,
     handleOpenUserMenu,
     handleCloseNavMenu,
     handleCloseUserMenu,
+    isUserMenuOpen,
+    isNavigationMenuOpen,
   } as const;
 };
 
 export const ManagerPanelPage = () => {
-  const { anchorElNav, anchorElUser, handleOpenNavMenu, handleOpenUserMenu, handleCloseNavMenu, handleCloseUserMenu } =
-    useManagerPanelPage();
+  const {
+    anchorNavigationMenuEl,
+    anchorUserMenuEl,
+    handleOpenNavMenu,
+    handleOpenUserMenu,
+    handleCloseNavMenu,
+    handleCloseUserMenu,
+    isUserMenuOpen,
+    isNavigationMenuOpen,
+  } = useManagerPanelPage();
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -56,7 +73,7 @@ export const ManagerPanelPage = () => {
               <MenuIcon />
             </IconButton>
             <Menu
-              anchorEl={anchorElNav}
+              anchorEl={anchorNavigationMenuEl}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
@@ -66,7 +83,7 @@ export const ManagerPanelPage = () => {
                 vertical: 'top',
                 horizontal: 'left',
               }}
-              open={Boolean(anchorElNav)}
+              open={isNavigationMenuOpen}
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
@@ -74,14 +91,16 @@ export const ManagerPanelPage = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Button key={page} sx={{ color: 'text.primary', display: 'block', textAlign: 'left' }}>
+                    {page}
+                  </Button>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Button key={page} onClick={handleCloseNavMenu} sx={{ m: 2, color: 'text.secondary', display: 'block' }}>
                 {page}
               </Button>
             ))}
@@ -89,12 +108,12 @@ export const ManagerPanelPage = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AccountCircleIcon sx={{ fontSize: '2.5rem', color: 'white' }} />
+                <AccountCircleIcon sx={{ fontSize: '2.5rem', color: 'text.secondary' }} />
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '3rem' }}
-              anchorEl={anchorElUser}
+              anchorEl={anchorUserMenuEl}
               anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
@@ -104,12 +123,12 @@ export const ManagerPanelPage = () => {
                 vertical: 'top',
                 horizontal: 'right',
               }}
-              open={Boolean(anchorElUser)}
+              open={isUserMenuOpen}
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
