@@ -1,0 +1,17 @@
+.orderPage {
+    /* width: fit-content; */
+}  
+
+.pageTitle {
+    text-align: center;
+    font-size: 36px;
+    margin: 20px 0;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+    
+.pageOrder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

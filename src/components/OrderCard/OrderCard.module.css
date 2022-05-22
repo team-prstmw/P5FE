@@ -1,0 +1,55 @@
+.orderCard {
+    background-color: antiquewhite;
+    border: 1px solid #000;
+    border-radius: 15px;
+    width: 272px;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.orderHeader {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgb(3, 143, 249);
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    border-bottom: 1px solid #000;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+.orderTable {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+    
+.order {
+    padding-left: 10px;
+    margin-bottom: 15px;
+    margin-bottom: 80px;
+}
+    
+.orderInfo {
+    border-top: 1px solid #000;
+    position: absolute;
+    bottom: 0; 
+}
+
+.orderNote {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
+    padding: 5px 10px;
+}
+
+.orderDetails {
+    text-align: right;
+    margin: 0 10px 10px 0;
+    font-weight: 500;
+    color: rgb(255, 0, 0);
+}
