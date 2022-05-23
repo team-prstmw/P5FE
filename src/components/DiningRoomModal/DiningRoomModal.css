@@ -30,3 +30,29 @@ Button {
   width: auto;
   align-items: flex-end;
 }
+
+@media (max-width: 50rem) {
+  .diningRoomModal__modal {
+    min-width: 85%;
+    border: 3px solid var(--color-blue);
+  }
+
+  .margin-bottom {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 29rem) {
+  .diningRoomModal__modal {
+    min-width: 90%;
+    border: 1px solid var(--color-blue);
+  }
+
+  .diningRoomModal__button-flex {
+    gap: 0.25rem;
+  }
+
+  .margin-bottom {
+    margin-bottom: 0.5rem;
+  }
+}
