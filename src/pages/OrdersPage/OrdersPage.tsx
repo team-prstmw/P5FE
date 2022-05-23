@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import OrderCard from 'src/components/OrderCard/OrderCard';
-import OrderDetails from 'src/components/OrderDetails/OrderDetails';
+import { OrderCard } from 'src/components/OrderCard/OrderCard';
+import { OrderDetails } from 'src/components/OrderDetails/OrderDetails';
 
-import someName from '../../../orders.json';
+import { useGetOrder } from '../../api/useGetOrder';
 import styles from './OrdersPage.module.css';
 
-function OrdersPage() {
-  const order = someName.data;
+export function OrdersPage() {
+  const order = useGetOrder();
 
   const [clicked, setClicked] = useState<null | {
     dish: {
       name: string;
       quantity: number;
-      state: boolean;
+      status: boolean;
     }[];
     note: string;
     done: boolean;
@@ -23,9 +23,9 @@ function OrdersPage() {
   };
 
   return (
-    <div className={styles.orderPage}>
-      <div className={styles.pageTitle}>Orders Page</div>
-      <div className={styles.pageOrder}>
+    <div>
+      <div className={styles.title}>Orders Page</div>
+      <div className={styles.order}>
         {order.map(({ dish, note, done }, id) => {
           return (
             <OrderCard key={id.toString()} table={id} openModal={setClicked} dish={dish} note={note} done={done} />
@@ -36,5 +36,3 @@ function OrdersPage() {
     </div>
   );
 }
-
-export default OrdersPage;

@@ -1,8 +1,4 @@
-.orderPage {
-    /* width: fit-content; */
-}  
-
-.pageTitle {
+.title {
     text-align: center;
     font-size: 36px;
     margin: 20px 0;
@@ -10,7 +6,7 @@
     letter-spacing: 2px;
 }
     
-.pageOrder {
+.order {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

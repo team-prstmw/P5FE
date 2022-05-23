@@ -1,5 +1,5 @@
-.orderCard {
-    background-color: antiquewhite;
+.card {
+    background-color: rgb(250, 235, 215);
     border: 1px solid #000;
     border-radius: 15px;
     width: 272px;
@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 
-.orderHeader {
+.header {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: rgb(3, 143, 249);
@@ -20,7 +20,7 @@
     font-size: 20px;
 }
 
-.orderTable {
+.table {
     text-align: center;
     font-size: 18px;
     font-weight: 500;
@@ -33,13 +33,13 @@
     margin-bottom: 80px;
 }
     
-.orderInfo {
+.order__information {
     border-top: 1px solid #000;
     position: absolute;
     bottom: 0; 
 }
 
-.orderNote {
+.order_note {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,7 +47,7 @@
     padding: 5px 10px;
 }
 
-.orderDetails {
+.order_details {
     text-align: right;
     margin: 0 10px 10px 0;
     font-weight: 500;

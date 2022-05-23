@@ -12,12 +12,12 @@ type OrederDetailsProps = {
   dish: {
     name: string;
     quantity: number;
-    state: boolean;
+    status: boolean;
   }[];
   note: string;
 };
 
-function OrderDetails({ handleClickAway, dish, note }: OrederDetailsProps) {
+export function OrderDetails({ handleClickAway, dish, note }: OrederDetailsProps) {
   const close = () => {
     handleClickAway();
   };
@@ -25,30 +25,23 @@ function OrderDetails({ handleClickAway, dish, note }: OrederDetailsProps) {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={styles.details}>
-        <div className={styles.dateailsIcon} onClick={handleClickAway}>
+        <div className={styles.icon} onClick={handleClickAway}>
           <CloseIcon />
         </div>
-        <div className={styles.dateailsTitle}>Szczegóły zamówienia</div>
-        <div className={styles.dateailsDishes}>
-          {dish?.map(({ name, quantity, state }) => {
+        <div className={styles.title}>Szczegóły zamówienia</div>
+        <div className={styles.dishes}>
+          {dish.map(({ name, quantity, status }) => {
             return (
-              <div className={styles.dateailsDish}>
-                {state ? (
-                  <span style={{ color: '#4CBB17' }}>
-                    {name} x {quantity}
-                  </span>
-                ) : (
-                  <span style={{ color: '#000' }}>
-                    {name} x {quantity}
-                  </span>
-                )}
-
+              <div className={styles.dish}>
+                <span style={{ color: `${status ? '#4CBB17' : '#000'}` }}>
+                  {name} x {quantity}
+                </span>
                 <CheckIcon />
               </div>
             );
           })}
         </div>
-        <div className={styles.dateailsNote}>{note}</div>
+        <div className={styles.dateails_note}>{note}</div>
         <div className={styles.button}>
           <Button onClick={close}>Wydano</Button>
         </div>
@@ -56,5 +49,3 @@ function OrderDetails({ handleClickAway, dish, note }: OrederDetailsProps) {
     </ClickAwayListener>
   );
 }
-
-export default OrderDetails;
