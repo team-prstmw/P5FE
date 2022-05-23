@@ -15,28 +15,28 @@ function createData(tableNumber: number, tableStatus: string, tableInfo: string,
   return { tableNumber, tableStatus, tableInfo, tableAlert };
 }
 
-const rows = [
-  createData(1, tableStatuses.occupied, 'Gluten intolerant clients', 'Ready to serve'),
-  createData(2, tableStatuses.toClean, '', 'Needs cleaning - Vanessa'),
-  createData(3, tableStatuses.free, '', ''),
-  createData(4, tableStatuses.free, '', ''),
-];
-
 export default function DiningRoomTable() {
+  const [rows, setRows] = useState([createData(1, tableStatuses.free, '', '')]);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  function createNewTable() {
+    const { tableNumber } = rows[rows.length - 1];
+    rows[rows.length] = createData(tableNumber + 1, tableStatuses.free, '', '');
+    setRows(rows);
+  }
+
   return (
-    <div>
+    <div className="DiningRoomTable__table">
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 0 }}>
           <TableHead>
-            <TableRow>
-              <TableCell>Table number</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Info</TableCell>
-              <TableCell>Alert</TableCell>
+            <TableRow className="DiningRoomTable__table-head">
+              <TableCell style={{ color: 'white', fontWeight: '600' }}>Table number</TableCell>
+              <TableCell style={{ color: 'white', fontWeight: '600' }}>Status</TableCell>
+              <TableCell style={{ color: 'white', fontWeight: '600' }}>Info</TableCell>
+              <TableCell style={{ color: 'white', fontWeight: '600' }}>Alert</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -45,6 +45,7 @@ export default function DiningRoomTable() {
                 onClick={handleOpen}
                 key={row.tableNumber}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                className="DiningRoomTable__table-row"
               >
                 <TableCell component="th" scope="row">
                   {row.tableNumber}
@@ -56,10 +57,10 @@ export default function DiningRoomTable() {
             ))}
           </TableBody>
         </Table>
-        <Button variant="contained" style={{ width: '100%' }}>
-          Add Table
-        </Button>
       </TableContainer>
+      <Button variant="contained" style={{ width: '100%', marginTop: '1rem' }} onClick={() => createNewTable()}>
+        Add Table
+      </Button>
       <Modal open={open} onClose={handleClose}>
         <DiningRoomModal />
       </Modal>

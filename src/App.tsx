@@ -2,7 +2,7 @@ import './App.css';
 
 import { ReactElement } from 'react';
 
-import DiningRoomPage from './pages/DiningRoomPage';
+import DiningRoomPage from './pages/DiningRoomPage/DiningRoomPage';
 
 function App(): ReactElement {
   return (
