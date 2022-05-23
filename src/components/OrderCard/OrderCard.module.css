@@ -1,55 +1,54 @@
 .card {
-    background-color: rgb(250, 235, 215);
+    position: relative;
+    margin: 10px;
     border: 1px solid #000;
     border-radius: 15px;
     width: 272px;
-    margin: 10px;
-    position: relative;
+    background-color: rgb(250, 235, 215);
     cursor: pointer;
 }
 
 .header {
+    border-bottom: 1px solid #000;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: rgb(3, 143, 249);
-    text-align: center;
-    font-weight: 500;
-    color: #fff;
-    border-bottom: 1px solid #000;
     padding: 10px 0;
     font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
 }
 
 .table {
-    text-align: center;
+    margin: 5px 0;
     font-size: 18px;
     font-weight: 500;
-    margin: 5px 0;
+    text-align: center;
 }
     
 .order {
-    padding-left: 10px;
-    margin-bottom: 15px;
     margin-bottom: 80px;
+    padding-left: 10px;
 }
     
 .order__information {
-    border-top: 1px solid #000;
     position: absolute;
     bottom: 0; 
+    border-top: 1px solid #000;
 }
 
 .order__note {
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     width: 250px;
     padding: 5px 10px;
 }
 
 .order__details {
-    text-align: right;
     margin: 0 10px 10px 0;
     font-weight: 500;
+    text-align: right;
     color: rgb(255, 0, 0);
 }

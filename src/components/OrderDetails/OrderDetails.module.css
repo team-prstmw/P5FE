@@ -1,11 +1,11 @@
 .details {
-  background-color: rgb(250, 235, 215);
   position: fixed;
-  height: 500px;
-  width: 500px;
   z-index: 20;
   border: 1px solid #000;
   border-radius: 25px;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(250, 235, 215);
 }
 
 .icon {
@@ -19,32 +19,32 @@
 }
 
 .title {
-  text-align: center;
-  font-size: 25px;
   padding: 10px 0;
-  font-weight: 700;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
   background-color: rgb(3, 143, 249);
   color: #fff;
 }
 
 .dishes {
+  overflow: auto;
   margin: 10px 0 10px 0;
   border-top: '1px solid #000';
-  padding-top: 10px;
   height: 200px;
-  overflow: auto;
+  padding-top: 10px;
 }
 
 .dish {
   display: flex;
   justify-content: space-between;
   margin: 5px 20px;
+  cursor: pointer;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 1px;
-  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -57,36 +57,36 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #000; 
   border-radius: 10px;
+  background: #000; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(86, 86, 86); 
 }
 
-.datails__note {
+.details__note {
   position: absolute;
-  border: 1px solid #000;
-  background-color: #fff;
-  margin: 0 10px;
-  padding: 10px;
   bottom: 60px;
   left: 0;
   right: 0;
-  height: 25%;
   overflow-y: auto;
+  margin: 0 10px;
+  border: 1px solid #000;
+  padding: 10px;
+  height: 25%;
+  background-color: #fff;
 }
 
 .button{
   position: absolute;
-  right: 30px;
   bottom: 7px;
+  right: 30px;
 }
 
 .button button{
-  font-weight: 600;
   font-size: 20px;
+  font-weight: 600;
 }
 
 .button button:hover{
