@@ -43,8 +43,8 @@ export function OrderCard({ table, openModal, dish, note, done }: OrderCardProps
             })}
           </div>
           <div className={styles.order__information}>
-            <div className={styles.order_note}>{note}</div>
-            <div className={styles.order_details}>Więcej szczegółów</div>
+            <div className={styles.order__note}>{note}</div>
+            <div className={styles.order__details}>Więcej szczegółów</div>
           </div>
         </div>
       )}

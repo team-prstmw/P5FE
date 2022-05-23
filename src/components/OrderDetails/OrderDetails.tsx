@@ -37,7 +37,7 @@ export function OrderDetails({ handleClickAway, dish, note }: OrederDetailsProps
             );
           })}
         </div>
-        <div className={styles.dateails_note}>{note}</div>
+        <div className={styles.datails__note}>{note}</div>
         <div className={styles.button}>
           <Button onClick={close}>Wydano</Button>
         </div>

@@ -39,7 +39,7 @@
     bottom: 0; 
 }
 
-.order_note {
+.order__note {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,7 +47,7 @@
     padding: 5px 10px;
 }
 
-.order_details {
+.order__details {
     text-align: right;
     margin: 0 10px 10px 0;
     font-weight: 500;
