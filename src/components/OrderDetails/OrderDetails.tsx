@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button } from '@mui/material';
@@ -25,9 +23,7 @@ export function OrderDetails({ handleClickAway, dish, note }: OrederDetailsProps
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={styles.details}>
-        <div className={styles.icon} onClick={handleClickAway}>
-          <CloseIcon />
-        </div>
+        <CloseIcon className={styles.icon} onClick={handleClickAway} />
         <div className={styles.title}>Szczegóły zamówienia</div>
         <div className={styles.dishes}>
           {dish.map(({ name, quantity, status }) => {

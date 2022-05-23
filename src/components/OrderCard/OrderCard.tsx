@@ -30,7 +30,7 @@ export function OrderCard({ table, openModal, dish, note, done }: OrderCardProps
   return (
     <>
       {!done && (
-        <div className={styles.card} onClick={handleClick} role="button" tabIndex={0} onKeyDown={handleClick}>
+        <div className={styles.card} onClick={handleClick}>
           <div className={styles.header}>Stolik numer: {table}</div>
           <div className={styles.table}>Zamówienie</div>
           <div className={styles.order}>
