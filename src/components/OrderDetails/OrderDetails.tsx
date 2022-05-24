@@ -24,7 +24,7 @@ export function OrderDetails({ handleClickAway, dish, note }: OrederDetailsProps
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={styles.details}>
         <CloseIcon className={styles.icon} onClick={handleClickAway} />
-        <div className={styles.title}>Szczegóły zamówienia</div>
+        <div className={styles.title}>Szczegoly zamowienia</div>
         <div className={styles.dishes}>
           {dish.map(({ name, quantity, status }) => {
             return (
