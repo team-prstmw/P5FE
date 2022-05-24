@@ -3,18 +3,25 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip } from '@mui/material';
 import { MouseEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRoute } from 'src/hooks/useRoute';
 
 import { removeCookies } from '@/utils/removeCookies';
 
-const PAGES = ['Orders', 'Menu', 'Tables', 'Reports'];
-const SETTINGS = ['Add new meal', 'Add new employee', 'Logout'];
-const SETTINGS_LINKS = ['newmeal', 'newemployee', '/'];
-const SETTINGS_FUNCTIONS = [() => {}, () => {}, removeCookies];
+const LOGOUT_ROUTE = {
+  path: '/',
+  name: 'Logout',
+  element: null,
+  isMainPage: false,
+  displayInMainNav: false,
+  displayInUserNav: true,
+};
 
 const useManagerPanelPage = () => {
   const [anchorNavigationMenuEl, setAnchorNavigationMenuEl] = useState<null | HTMLElement>(null);
   const [anchorUserMenuEl, setAnchorUserMenuEl] = useState<null | HTMLElement>(null);
+  const { navigationRoutes, userRoutes } = useRoute();
 
+  const managerPanelUserRoutes = [...userRoutes, LOGOUT_ROUTE];
   const isUserMenuOpen = Boolean(anchorUserMenuEl);
 
   const isNavigationMenuOpen = Boolean(anchorNavigationMenuEl);
@@ -43,6 +50,8 @@ const useManagerPanelPage = () => {
     handleCloseUserMenu,
     isUserMenuOpen,
     isNavigationMenuOpen,
+    navigationRoutes,
+    managerPanelUserRoutes,
   } as const;
 };
 
@@ -56,6 +65,8 @@ export const ManagerPanelPage = () => {
     handleCloseUserMenu,
     isUserMenuOpen,
     isNavigationMenuOpen,
+    navigationRoutes,
+    managerPanelUserRoutes,
   } = useManagerPanelPage();
 
   return (
@@ -83,8 +94,8 @@ export const ManagerPanelPage = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {PAGES.map((page, i) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {navigationRoutes.map(({ path, name }) => (
+                <MenuItem key={path} onClick={handleCloseNavMenu}>
                   <Button
                     component={Link}
                     sx={{
@@ -94,18 +105,17 @@ export const ManagerPanelPage = () => {
                       textAlign: 'left',
                       textTransform: 'uppercase',
                     }}
-                    to={`/${PAGES[i].toLowerCase()}`}
-                    key={page}
+                    to={`/${path}`}
                     onClick={handleCloseNavMenu}
                   >
-                    {page}
+                    {name}
                   </Button>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {PAGES.map((page, i) => (
+            {navigationRoutes.map(({ path, name }) => (
               <Button
                 component={Link}
                 sx={{
@@ -115,11 +125,11 @@ export const ManagerPanelPage = () => {
                   textDecoration: 'none',
                   textTransform: 'uppercase',
                 }}
-                to={`/${PAGES[i].toLowerCase()}`}
-                key={page}
+                to={`/${path}`}
+                key={path}
                 onClick={handleCloseNavMenu}
               >
-                {page}
+                {name}
               </Button>
             ))}
           </Box>
@@ -144,19 +154,24 @@ export const ManagerPanelPage = () => {
               open={isUserMenuOpen}
               onClose={handleCloseUserMenu}
             >
-              {SETTINGS.map((setting, i) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              {managerPanelUserRoutes.map(({ path, name }) => (
+                <MenuItem key={path}>
                   <Button
                     component={Link}
                     sx={{
                       color: 'text.primary',
                       textDecoration: 'none',
                     }}
-                    to={`/${SETTINGS_LINKS[i]}`}
-                    key={setting}
-                    onClick={SETTINGS_FUNCTIONS[i]}
+                    to={`/${path}`}
+                    onClick={() => {
+                      handleCloseUserMenu();
+
+                      if (name === 'Logout') {
+                        removeCookies();
+                      }
+                    }}
                   >
-                    {setting}
+                    {name}
                   </Button>
                 </MenuItem>
               ))}

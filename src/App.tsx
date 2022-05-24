@@ -3,23 +3,20 @@ import './App.css';
 import { ThemeProvider } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { ManagerPanelPage } from './components/ManagerPanelPage/ManagerPanelPage';
+import { useRoute } from './hooks/useRoute';
 import { theme } from './theme/theme';
 
 function App() {
+  const { routes } = useRoute();
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <div className="App">
           <Routes>
-            <Route path="/" element={null} />
-            <Route path="main" element={<ManagerPanelPage />} />
-            <Route path="orders" element={null} />
-            <Route path="menu" element={null} />
-            <Route path="tables" element={null} />
-            <Route path="reports" element={null} />
-            <Route path="newmeal" element={null} />
-            <Route path="newemployee" element={null} />
+            {routes.map((route) => (
+              <Route path={route.path} element={route.element} key={route.path} />
+            ))}
           </Routes>
         </div>
       </ThemeProvider>
