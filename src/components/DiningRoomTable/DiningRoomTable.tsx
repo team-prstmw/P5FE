@@ -33,10 +33,10 @@ export function DiningRoomTable() {
         <Table sx={{ minWidth: 0 }}>
           <TableHead>
             <TableRow className="DiningRoomTable__table-head">
-              <TableCell style={{ color: 'white', fontWeight: '600' }}>Table number</TableCell>
-              <TableCell style={{ color: 'white', fontWeight: '600' }}>Status</TableCell>
-              <TableCell style={{ color: 'white', fontWeight: '600' }}>Info</TableCell>
-              <TableCell style={{ color: 'white', fontWeight: '600' }}>Alert</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: '600' }}>Table number</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: '600' }}>Status</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: '600' }}>Info</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: '600' }}>Alert</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
