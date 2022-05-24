@@ -1,21 +1,15 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Tooltip,
-  Typography,
-} from '@mui/material';
+import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip } from '@mui/material';
 import { MouseEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const pages = ['Orders', 'Menu', 'Tables', 'Reports'];
-const settings = ['Add new meal', 'Add new employee', 'Logout'];
+import { removeCookies } from '@/utils/removeCookies';
+
+const PAGES = ['Orders', 'Menu', 'Tables', 'Reports'];
+const SETTINGS = ['Add new meal', 'Add new employee', 'Logout'];
+const SETTINGS_LINKS = ['newmeal', 'newemployee', '/'];
+const SETTINGS_FUNCTIONS = [() => {}, () => {}, removeCookies];
 
 const useManagerPanelPage = () => {
   const [anchorNavigationMenuEl, setAnchorNavigationMenuEl] = useState<null | HTMLElement>(null);
@@ -89,9 +83,21 @@ export const ManagerPanelPage = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {PAGES.map((page, i) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Button key={page} sx={{ color: 'text.primary', display: 'block', textAlign: 'left' }}>
+                  <Button
+                    component={Link}
+                    sx={{
+                      display: 'block',
+                      color: 'text.primary',
+                      textDecoration: 'none',
+                      textAlign: 'left',
+                      textTransform: 'uppercase',
+                    }}
+                    to={`/${PAGES[i].toLowerCase()}`}
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                  >
                     {page}
                   </Button>
                 </MenuItem>
@@ -99,14 +105,26 @@ export const ManagerPanelPage = () => {
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ m: 2, color: 'text.secondary', display: 'block' }}>
+            {PAGES.map((page, i) => (
+              <Button
+                component={Link}
+                sx={{
+                  display: 'block',
+                  m: '1rem',
+                  color: 'text.secondary',
+                  textDecoration: 'none',
+                  textTransform: 'uppercase',
+                }}
+                to={`/${PAGES[i].toLowerCase()}`}
+                key={page}
+                onClick={handleCloseNavMenu}
+              >
                 {page}
               </Button>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Open SETTINGS">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountCircleIcon sx={{ fontSize: '2.5rem', color: 'text.secondary' }} />
               </IconButton>
@@ -126,9 +144,20 @@ export const ManagerPanelPage = () => {
               open={isUserMenuOpen}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {SETTINGS.map((setting, i) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography>{setting}</Typography>
+                  <Button
+                    component={Link}
+                    sx={{
+                      color: 'text.primary',
+                      textDecoration: 'none',
+                    }}
+                    to={`/${SETTINGS_LINKS[i]}`}
+                    key={setting}
+                    onClick={SETTINGS_FUNCTIONS[i]}
+                  >
+                    {setting}
+                  </Button>
                 </MenuItem>
               ))}
             </Menu>
@@ -138,4 +167,3 @@ export const ManagerPanelPage = () => {
     </AppBar>
   );
 };
-export default ManagerPanelPage;
