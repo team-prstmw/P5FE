@@ -1,6 +1,6 @@
 import './App.css';
 
-import MenuPage from './components/UI/pages/MenuPage';
+import { MenuPage } from './components/MenuPage/MenuPage';
 
 function App() {
   return (
