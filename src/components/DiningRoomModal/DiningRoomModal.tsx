@@ -2,7 +2,7 @@ import './DiningRoomModal.css';
 
 import { Box, Button, TextField, Typography } from '@mui/material';
 
-function DiningRoomModal() {
+export function DiningRoomModal() {
   return (
     <Box className="diningRoomModal__modal">
       <Typography variant="h5">Status</Typography>
@@ -39,5 +39,3 @@ function DiningRoomModal() {
     </Box>
   );
 }
-
-export default DiningRoomModal;

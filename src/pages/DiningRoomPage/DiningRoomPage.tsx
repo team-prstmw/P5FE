@@ -1,9 +1,9 @@
 import './DiningRoomPage.css';
 
 import { Typography } from '@mui/material';
-import DiningRoomTable from 'src/components/DiningRoomTable/DiningRoomTable';
+import { DiningRoomTable } from 'src/components/DiningRoomTable/DiningRoomTable';
 
-function DiningRoomPage() {
+export function DiningRoomPage() {
   return (
     <div className="DiningRoomPage">
       <Typography variant="h3" className="DiningRoomPage__title">
@@ -13,5 +13,3 @@ function DiningRoomPage() {
     </div>
   );
 }
-
-export default DiningRoomPage;

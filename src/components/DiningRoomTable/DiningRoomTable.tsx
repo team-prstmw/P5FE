@@ -3,7 +3,7 @@ import './DiningRoomTable.css';
 import { Button, Modal, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useState } from 'react';
 
-import DiningRoomModal from '../DiningRoomModal/DiningRoomModal';
+import { DiningRoomModal } from '../DiningRoomModal/DiningRoomModal';
 
 const tableStatuses = {
   free: 'FREE',
@@ -15,7 +15,7 @@ function createData(tableNumber: number, tableStatus: string, tableInfo: string,
   return { tableNumber, tableStatus, tableInfo, tableAlert };
 }
 
-export default function DiningRoomTable() {
+export function DiningRoomTable() {
   const [rows, setRows] = useState([createData(1, tableStatuses.free, '', '')]);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
