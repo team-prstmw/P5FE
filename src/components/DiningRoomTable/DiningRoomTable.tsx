@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import { DiningRoomModal } from '../DiningRoomModal/DiningRoomModal';
 
-const tableStatuses = {
+const TABLE_STATUSES = {
   free: 'FREE',
   occupied: 'OCCUPIED',
   toClean: 'TO CLEAN',
@@ -16,14 +16,14 @@ function createData(tableNumber: number, tableStatus: string, tableInfo: string,
 }
 
 export function DiningRoomTable() {
-  const [rows, setRows] = useState([createData(1, tableStatuses.free, '', '')]);
+  const [rows, setRows] = useState([createData(1, TABLE_STATUSES.free, '', '')]);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   function createNewTable() {
     const { tableNumber } = rows[rows.length - 1];
-    rows[rows.length] = createData(tableNumber + 1, tableStatuses.free, '', '');
+    rows[rows.length] = createData(tableNumber + 1, TABLE_STATUSES.free, '', '');
     setRows(rows);
   }
 
