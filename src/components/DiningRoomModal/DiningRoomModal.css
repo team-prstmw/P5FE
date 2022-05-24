@@ -12,12 +12,8 @@
   min-width: 45rem;
 }
 
-.margin-bottom {
+.diningRoomModal__margin-bottom {
   margin-bottom: 1rem;
-}
-
-Button {
-  width: 100%;
 }
 
 .diningRoomModal__button-flex {
