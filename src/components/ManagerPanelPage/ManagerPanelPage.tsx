@@ -3,7 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip } from '@mui/material';
 import { MouseEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useRoute } from 'src/hooks/useRoute';
+import { useRoutes } from 'src/hooks/useRoute';
 
 import { removeCookies } from '@/utils/removeCookies';
 
@@ -19,7 +19,7 @@ const LOGOUT_ROUTE = {
 const useManagerPanelPage = () => {
   const [anchorNavigationMenuEl, setAnchorNavigationMenuEl] = useState<null | HTMLElement>(null);
   const [anchorUserMenuEl, setAnchorUserMenuEl] = useState<null | HTMLElement>(null);
-  const { navigationRoutes, userRoutes } = useRoute();
+  const { navigationRoutes, userRoutes } = useRoutes();
 
   const managerPanelUserRoutes = [...userRoutes, LOGOUT_ROUTE];
   const isUserMenuOpen = Boolean(anchorUserMenuEl);

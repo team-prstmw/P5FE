@@ -3,11 +3,11 @@ import './App.css';
 import { ThemeProvider } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { useRoute } from './hooks/useRoute';
+import { useRoutes } from './hooks/useRoute';
 import { theme } from './theme/theme';
 
 function App() {
-  const { routes } = useRoute();
+  const { routes } = useRoutes();
 
   return (
     <BrowserRouter>

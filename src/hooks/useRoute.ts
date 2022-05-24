@@ -1,6 +1,6 @@
 import { ROUTES } from '../routes/Routes';
 
-export const useRoute = () => {
+export const useRoutes = () => {
   const routes = ROUTES;
   const navigationRoutes = ROUTES.filter((route) => route.displayInMainNav);
   const userRoutes = ROUTES.filter((route) => {
