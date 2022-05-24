@@ -1,11 +1,4 @@
-:root {
-  --color-red: #c20e0e;
-  --color-blue: #1876d1;
-  --color-white: #ededed;
-  --color-dark-white: #dbdbe0;
-  --color-black: #1c1b1b;
-  --color-grey: #494955;
-}
+@import url(../../variables.css);
 
 .DiningRoomTable__table {
   min-width: 95%;
