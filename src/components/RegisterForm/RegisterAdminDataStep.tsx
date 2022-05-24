@@ -50,7 +50,7 @@ export function RegisterAdminDataStep({ nextStep, prevStep, data }: RegisterAdmi
         render={({ field }) => (
           <TextField
             {...field}
-            sx={{ margin: '12px 0px' }}
+            sx={{ margin: '1rem 0' }}
             label="Email"
             variant="outlined"
             error={Boolean(errors?.email)}
@@ -66,7 +66,7 @@ export function RegisterAdminDataStep({ nextStep, prevStep, data }: RegisterAdmi
         render={({ field }) => (
           <TextField
             {...field}
-            sx={{ marginBottom: '12px' }}
+            sx={{ marginBottom: '1rem' }}
             label="Login"
             variant="outlined"
             error={Boolean(errors?.login)}
@@ -83,7 +83,7 @@ export function RegisterAdminDataStep({ nextStep, prevStep, data }: RegisterAdmi
           <TextField
             {...field}
             type="password"
-            sx={{ marginBottom: '12px' }}
+            sx={{ marginBottom: '1rem' }}
             label="Password"
             variant="outlined"
             error={Boolean(errors?.password)}
@@ -100,7 +100,7 @@ export function RegisterAdminDataStep({ nextStep, prevStep, data }: RegisterAdmi
           <TextField
             {...field}
             type="password"
-            sx={{ marginBottom: '12px' }}
+            sx={{ marginBottom: '1rem' }}
             label="Confirm Password"
             variant="outlined"
             error={Boolean(errors?.repeatPassword)}
@@ -112,7 +112,7 @@ export function RegisterAdminDataStep({ nextStep, prevStep, data }: RegisterAdmi
       <div style={{ display: 'flex' }}>
         <Button
           fullWidth
-          sx={{ mr: 7 }}
+          sx={{ mr: '1rem' }}
           variant="contained"
           color="warning"
           type="button"

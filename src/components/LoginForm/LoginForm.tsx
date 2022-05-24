@@ -56,7 +56,7 @@ export function LoginForm() {
         }}
       >
         <Grid item>
-          <AccountCircleIcon sx={{ fontSize: 50, margin: 3 }} color="primary" />
+          <AccountCircleIcon sx={{ fontSize: 50, margin: '1.5rem' }} color="primary" />
         </Grid>
       </Grid>
       <form onSubmit={handleSubmit(formSubmitHandler)}>
@@ -69,8 +69,8 @@ export function LoginForm() {
               {...field}
               label="Login"
               variant="outlined"
-              error={!!errors.login}
-              helperText={errors.login ? errors.login?.message : ''}
+              error={Boolean(errors?.login)}
+              helperText={errors.login && errors.login?.message}
               fullWidth
             />
           )}
@@ -83,17 +83,17 @@ export function LoginForm() {
             <TextField
               {...field}
               type="password"
-              sx={{ mt: 2 }}
+              sx={{ mt: '1rem' }}
               label="Password"
               variant="outlined"
-              error={!!errors.password}
-              helperText={errors.password ? errors.password?.message : ''}
+              error={Boolean(errors?.password)}
+              helperText={errors.password && errors.password?.message}
               fullWidth
             />
           )}
         />
-        <FormControlLabel sx={{ mt: 1 }} name="remember" control={<Checkbox color="primary" />} label="Remember me" />
-        <Button sx={{ mt: 1, fontWeight: 'bold' }} type="submit" variant="contained" color="primary" fullWidth>
+        <FormControlLabel sx={{ mt: '0.5rem' }} name="remember" control={<Checkbox color="primary" />} label="Remember me" />
+        <Button sx={{ mt: '0.5rem', fontWeight: 'bold' }} type="submit" variant="contained" color="primary" fullWidth>
           Sign In
         </Button>
       </form>

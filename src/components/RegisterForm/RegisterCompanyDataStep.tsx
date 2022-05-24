@@ -45,7 +45,7 @@ export function RegisterCompanyDataStep({ nextStep, data }: RegisterCompanyDataS
         render={({ field }) => (
           <TextField
             {...field}
-            sx={{ margin: '12px 0px' }}
+            sx={{ margin: '1rem 0' }}
             label="Company Name"
             variant="outlined"
             error={Boolean(errors?.companyName)}
@@ -61,7 +61,7 @@ export function RegisterCompanyDataStep({ nextStep, data }: RegisterCompanyDataS
         render={({ field }) => (
           <TextField
             {...field}
-            sx={{ marginBottom: '12px' }}
+            sx={{ marginBottom: '1rem' }}
             label="City"
             variant="outlined"
             error={Boolean(errors?.city)}
