@@ -4,16 +4,18 @@ import { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
+import { EmployeeRoleUnion } from '../../models/NewEmployeeData';
+
 type NewEmployeeData = {
   login: string;
   password: string;
-  role: string;
+  role: EmployeeRoleUnion;
 };
 
 const schema = Yup.object().shape({
-  login: Yup.string().required('Required'),
-  password: Yup.string().required('Required'),
-  role: Yup.string().required('Required'),
+  login: Yup.string().required('This field is required.'),
+  password: Yup.string().required('This field is required.'),
+  role: Yup.string().required('This field is required.'),
 });
 
 type EmployeeFormProps = {
@@ -22,7 +24,7 @@ type EmployeeFormProps = {
 };
 
 export function EmployeeForm({ recordForEdit, addOrEdit }: EmployeeFormProps) {
-  const [data, setData] = useState<NewEmployeeData>({
+  const [employeeData, setEmployeeData] = useState<NewEmployeeData>({
     login: '',
     password: '',
     role: '',
@@ -38,12 +40,12 @@ export function EmployeeForm({ recordForEdit, addOrEdit }: EmployeeFormProps) {
 
   const formSubmitHandler: SubmitHandler<NewEmployeeData> = () => {
     addOrEdit();
-    setData(data);
+    setEmployeeData(employeeData);
   };
 
   useEffect(() => {
     if (recordForEdit != null)
-      setData({
+      setEmployeeData({
         ...recordForEdit,
       });
   }, [recordForEdit]);

@@ -17,12 +17,13 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
+import { NewEmployeeData } from '../../models/NewEmployeeData';
 import { ConfirmDialog } from './ConfirmDialog';
 import { EmployeeForm } from './EmployeeForm';
 import { Notify } from './Notify';
 import { PopUpEmployeeForm } from './PopUpEmployeeForm';
 
-function createData(id: number, login: string, password: string, role: string) {
+function createData(id: number, login: string, password: string, role: 'cook' | 'manager' | 'waiter' | '') {
   return { id, login, password, role };
 }
 
@@ -33,13 +34,6 @@ const ROWS = [
   createData(4, 'szymkno21', 'kotlet', 'cook'),
   createData(5, 'ewetryb31', 'ziemniaczki', 'cook'),
 ];
-
-type NewEmployeeData = {
-  id: number;
-  login: string;
-  password: string;
-  role: string;
-};
 
 type NotifyState = {
   isOpen: boolean;

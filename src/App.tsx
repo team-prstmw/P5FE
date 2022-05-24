@@ -1,10 +1,6 @@
-import './App.css';
+import { ManageTeam } from './components/manageTeam/ManageTeam';
 
-import { ReactElement } from 'react';
-
-import { ManageTeam } from './Components/ManageTeam/ManageTeam';
-
-function App(): ReactElement {
+function App() {
   return (
     <div className="App">
       <ManageTeam />
