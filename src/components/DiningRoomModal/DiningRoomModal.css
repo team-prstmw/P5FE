@@ -1,0 +1,56 @@
+@import url(../../variables.css);
+
+.diningRoomModal__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400;
+  border-radius: 1rem;
+  background-color: var(--color-white);
+  border: 5px solid var(--color-blue);
+  box-shadow: 24;
+  padding: 2rem;
+  min-width: 45rem;
+}
+
+.diningRoomModal__margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.diningRoomModal__button-flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.diningRoomModal__button-delete {
+  display: flex;
+  width: auto;
+  align-items: flex-end;
+}
+
+@media (max-width: 800px) {
+  .diningRoomModal__modal {
+    min-width: 85%;
+    border: 3px solid var(--color-blue);
+  }
+
+  .margin-bottom {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .diningRoomModal__modal {
+    min-width: 90%;
+    border: 1px solid var(--color-blue);
+  }
+
+  .diningRoomModal__button-flex {
+    gap: 0.25rem;
+  }
+
+  .margin-bottom {
+    margin-bottom: 0.5rem;
+  }
+}

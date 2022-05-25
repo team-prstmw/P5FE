@@ -22,12 +22,13 @@
     "@hookform/resolvers": "2.8.10",
     "@mui/icons-material": "5.8.0",
     "@mui/material": "5.8.0",
+    "@mui/styled-engine-sc": "5.7.0",
     "axios": "0.21.4",
     "react": "17.0.0",
     "react-dom": "17.0.0",
     "react-hook-form": "7.31.2",
     "react-query": "3.24.3",
-    "sass": "1.49.9",
+    "react-router-dom": "6",
     "yup": "0.32.11"
   },
   "devDependencies": {

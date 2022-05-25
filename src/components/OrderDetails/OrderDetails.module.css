@@ -1,0 +1,131 @@
+.details {
+  position: fixed;
+  z-index: 20;
+  border: 1px solid #000;
+  border-radius: 25px;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(250, 235, 215);
+}
+
+.icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.title {
+  padding: 10px 0;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  background-color: rgb(3, 143, 249);
+  color: #fff;
+}
+
+.dishes {
+  overflow: auto;
+  margin: 10px 0 10px 0;
+  border-top: '1px solid #000';
+  height: 200px;
+  padding-top: 10px;
+}
+
+.dish {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(128, 128, 128); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #000; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(86, 86, 86); 
+}
+
+.details__note {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  margin: 0 10px;
+  border: 1px solid #000;
+  padding: 10px;
+  height: 25%;
+  background-color: #fff;
+}
+
+.button{
+  position: absolute;
+  bottom: 7px;
+  right: 30px;
+}
+
+.button button{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.button button:hover{
+  background-color: unset;
+}
+
+@media (max-width: 400px){
+  .details {
+    width: 300px;
+    height: 400px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .dishes {
+    height: 170px;
+  }
+
+  .details__note {
+    height: 20%;
+  }
+
+  .button{
+    bottom: 9px;
+    right: 20px;
+  }
+  
+  .button button{
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 600px){
+  .details {
+    width: 350px;
+    height: 400px;
+  }
+}
