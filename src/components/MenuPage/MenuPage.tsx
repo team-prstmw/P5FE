@@ -1,6 +1,5 @@
 import { Box, Button } from '@mui/material';
-
-import { MenuItem } from '../MenuItem/MenuItem';
+import MenuItem from 'src/Components/MenuItem/MenuItem';
 
 export function MenuPage() {
   return (

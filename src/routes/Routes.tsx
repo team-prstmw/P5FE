@@ -1,9 +1,10 @@
+import { ManagerPanelPage } from 'src/Components/ManagerPanelPage/ManagerPanelPage';
+import { ManageTeam } from 'src/Components/ManageTeam/ManageTeam';
 import MenuPage from 'src/components/MenuPage/MenuPage';
 import { AddMealForm } from 'src/manager/components/AddMealForm/AddMealForm';
 import { DiningRoomPage } from 'src/pages/DiningRoomPage/DiningRoomPage';
 import { OrdersPage } from 'src/pages/OrdersPage/OrdersPage';
 
-import { ManagerPanelPage } from '../components/ManagerPanelPage/ManagerPanelPage';
 import type { Route } from './Route';
 
 export const ROUTES: Route[] = [
@@ -58,7 +59,7 @@ export const ROUTES: Route[] = [
   {
     path: 'new_employee',
     name: 'Add new employee',
-    element: null,
+    element: <ManageTeam />,
     isMainPage: false,
     displayInMainNav: false,
     displayInUserNav: true,
