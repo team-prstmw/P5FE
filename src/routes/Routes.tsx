@@ -1,4 +1,5 @@
 import MenuPage from 'src/components/MenuPage/MenuPage';
+import { DiningRoomPage } from 'src/pages/DiningRoomPage/DiningRoomPage';
 import { OrdersPage } from 'src/pages/OrdersPage/OrdersPage';
 
 import { ManagerPanelPage } from '../components/ManagerPanelPage/ManagerPanelPage';
@@ -30,7 +31,14 @@ export const ROUTES: Route[] = [
     displayInMainNav: true,
     displayInUserNav: false,
   },
-  { path: 'tables', name: 'Tables', element: null, isMainPage: false, displayInMainNav: true, displayInUserNav: false },
+  {
+    path: 'tables',
+    name: 'Tables',
+    element: <DiningRoomPage />,
+    isMainPage: false,
+    displayInMainNav: true,
+    displayInUserNav: false,
+  },
   {
     path: 'reports',
     name: 'Reports',

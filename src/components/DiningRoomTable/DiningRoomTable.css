@@ -1,0 +1,13 @@
+@import url(../../variables.css);
+
+.DiningRoomTable__table {
+  min-width: 95%;
+}
+
+.DiningRoomTable__table-head {
+  background-color: var(--color-blue);
+}
+
+.DiningRoomTable__table-row:nth-child(2n) {
+  background-color: var(--color-dark-white);
+}
