@@ -1,3 +1,5 @@
+import MenuPage from 'src/components/MenuPage/MenuPage';
+
 import { ManagerPanelPage } from '../components/ManagerPanelPage/ManagerPanelPage';
 import type { Route } from './Route';
 
@@ -12,7 +14,14 @@ export const ROUTES: Route[] = [
     displayInUserNav: false,
   },
   { path: 'orders', name: 'Orders', element: null, isMainPage: false, displayInMainNav: true, displayInUserNav: false },
-  { path: 'menu', name: 'Menu', element: null, isMainPage: false, displayInMainNav: true, displayInUserNav: false },
+  {
+    path: 'menu',
+    name: 'Menu',
+    element: <MenuPage />,
+    isMainPage: false,
+    displayInMainNav: true,
+    displayInUserNav: false,
+  },
   { path: 'tables', name: 'Tables', element: null, isMainPage: false, displayInMainNav: true, displayInUserNav: false },
   {
     path: 'reports',
