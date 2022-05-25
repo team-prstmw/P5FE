@@ -49,6 +49,8 @@ module.exports = {
     'no-nested-ternary': 0,
     'react/jsx-props-no-spreading': 0,
     'react/no-children-prop': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
     'no-redeclare': 'off',
     'no-param-reassign': ['error', { props: false }],
     '@typescript-eslint/no-unsafe-member-access': 'off',

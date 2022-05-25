@@ -1,4 +1,5 @@
 import MenuPage from 'src/components/MenuPage/MenuPage';
+import { OrdersPage } from 'src/pages/OrdersPage/OrdersPage';
 
 import { ManagerPanelPage } from '../components/ManagerPanelPage/ManagerPanelPage';
 import type { Route } from './Route';
@@ -13,7 +14,14 @@ export const ROUTES: Route[] = [
     displayInMainNav: false,
     displayInUserNav: false,
   },
-  { path: 'orders', name: 'Orders', element: null, isMainPage: false, displayInMainNav: true, displayInUserNav: false },
+  {
+    path: 'orders',
+    name: 'Orders',
+    element: <OrdersPage />,
+    isMainPage: false,
+    displayInMainNav: true,
+    displayInUserNav: false,
+  },
   {
     path: 'menu',
     name: 'Menu',
