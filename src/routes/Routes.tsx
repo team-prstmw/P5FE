@@ -1,4 +1,5 @@
 import MenuPage from 'src/components/MenuPage/MenuPage';
+import { AddMealForm } from 'src/manager/components/AddMealForm/AddMealForm';
 import { DiningRoomPage } from 'src/pages/DiningRoomPage/DiningRoomPage';
 import { OrdersPage } from 'src/pages/OrdersPage/OrdersPage';
 
@@ -50,7 +51,7 @@ export const ROUTES: Route[] = [
   {
     path: 'new_meal',
     name: 'Add new meal',
-    element: null,
+    element: <AddMealForm />,
     isMainPage: false,
     displayInMainNav: false,
     displayInUserNav: true,
