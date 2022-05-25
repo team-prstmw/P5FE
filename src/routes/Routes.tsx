@@ -8,7 +8,6 @@ import { OrdersPage } from 'src/pages/OrdersPage/OrdersPage';
 import type { Route } from './Route';
 
 export const ROUTES: Route[] = [
-  { path: '/', name: 'Login page', element: null, isMainPage: false, displayInMainNav: false, displayInUserNav: false },
   {
     path: 'main',
     name: 'Panel page',
