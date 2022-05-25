@@ -1,0 +1,11 @@
+.DiningRoomPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.DiningRoomPage__title {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
