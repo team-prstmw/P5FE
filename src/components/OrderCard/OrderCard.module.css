@@ -1,0 +1,54 @@
+.card {
+    position: relative;
+    margin: 10px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    width: 272px;
+    background-color: rgb(250, 235, 215);
+    cursor: pointer;
+}
+
+.header {
+    border-bottom: 1px solid #000;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgb(3, 143, 249);
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+}
+
+.table {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+    
+.order {
+    margin-bottom: 80px;
+    padding-left: 10px;
+}
+    
+.order__information {
+    position: absolute;
+    bottom: 0; 
+    border-top: 1px solid #000;
+}
+
+.order__note {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 250px;
+    padding: 5px 10px;
+}
+
+.order__details {
+    margin: 0 10px 10px 0;
+    font-weight: 500;
+    text-align: right;
+    color: rgb(255, 0, 0);
+}
