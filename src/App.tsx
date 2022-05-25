@@ -1,12 +1,26 @@
 import './App.css';
 
-import { MenuPage } from './components/MenuPage/MenuPage';
+import { ThemeProvider } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import { useRoutes } from './hooks/useRoute';
+import { theme } from './theme/theme';
 
 function App() {
+  const { routes } = useRoutes();
+
   return (
-    <div className="App">
-      <MenuPage />
-    </div>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <Routes>
+            {routes.map((route) => (
+              <Route path={route.path} element={route.element} key={route.path} />
+            ))}
+          </Routes>
+        </div>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
