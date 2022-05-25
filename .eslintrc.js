@@ -45,18 +45,13 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     'import/prefer-default-export': 0,
     'import/no-absolute-path': 0,
-    'import/extensions': 0,
     'no-nested-ternary': 0,
     'react/jsx-props-no-spreading': 0,
     'react/no-children-prop': 0,
-    'no-redeclare': 'off',
     'no-param-reassign': ['error', { props: false }],
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
-    '@typescript-eslint/no-redeclare': 'off',
-    '@typescript-eslint/no-unsafe-call': 'off',
-    '@typescript-eslint/restrict-template-expressions': 'off',
     'prettier/prettier': [
       'error',
       {
